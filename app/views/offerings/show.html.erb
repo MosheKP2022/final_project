@@ -1,0 +1,251 @@
+<div>
+  <div>
+    <h1>
+      Offering #<%= @the_offering.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/offerings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_offering/<%= @the_offering.id %>">
+          Delete offering
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_offering.title %>
+      </dd>
+
+      <dt>
+        Min age
+      </dt>
+      <dd>
+        <%= @the_offering.min_age %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_offering.description %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_offering.image %>
+      </dd>
+
+      <dt>
+        Address
+      </dt>
+      <dd>
+        <%= @the_offering.address %>
+      </dd>
+
+      <dt>
+        Video
+      </dt>
+      <dd>
+        <%= @the_offering.video %>
+      </dd>
+
+      <dt>
+        Giver
+      </dt>
+      <dd>
+        <%= @the_offering.giver_id %>
+      </dd>
+
+      <dt>
+        Max age
+      </dt>
+      <dd>
+        <%= @the_offering.max_age %>
+      </dd>
+
+      <dt>
+        Price
+      </dt>
+      <dd>
+        <%= @the_offering.price %>
+      </dd>
+
+      <dt>
+        Date
+      </dt>
+      <dd>
+        <%= @the_offering.date %>
+      </dd>
+
+      <dt>
+        Time
+      </dt>
+      <dd>
+        <%= @the_offering.time %>
+      </dd>
+
+      <dt>
+        Comments count
+      </dt>
+      <dd>
+        <%= @the_offering.comments_count %>
+      </dd>
+
+      <dt>
+        Labeled offerings count
+      </dt>
+      <dd>
+        <%= @the_offering.labeled_offerings_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_offering.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_offering.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit offering
+    </h2>
+
+    <form action="/modify_offering/<%= @the_offering.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_offering.title %>">
+      </div>
+
+      <div>
+        <label for="min_age_box">
+          Min age
+        </label>
+
+        <input type="text" id="min_age_box" name="query_min_age" value="<%= @the_offering.min_age %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_offering.description %></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_offering.image %>">
+      </div>
+
+      <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address" value="<%= @the_offering.address %>">
+      </div>
+
+      <div>
+        <label for="video_box">
+          Video
+        </label>
+
+        <input type="text" id="video_box" name="query_video" value="<%= @the_offering.video %>">
+      </div>
+
+      <div>
+        <label for="giver_id_box">
+          Giver
+        </label>
+
+        <input type="text" id="giver_id_box" name="query_giver_id" value="<%= @the_offering.giver_id %>">
+      </div>
+
+      <div>
+        <label for="max_age_box">
+          Max age
+        </label>
+
+        <input type="text" id="max_age_box" name="query_max_age" value="<%= @the_offering.max_age %>">
+      </div>
+
+      <div>
+        <label for="price_box">
+          Price
+        </label>
+
+        <input type="text" id="price_box" name="query_price" value="<%= @the_offering.price %>">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date" value="<%= @the_offering.date %>">
+      </div>
+
+      <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="time" id="time_box" name="query_time" value="<%= @the_offering.time %>">
+      </div>
+
+      <div>
+        <label for="comments_count_box">
+          Comments count
+        </label>
+
+        <input type="text" id="comments_count_box" name="query_comments_count" value="<%= @the_offering.comments_count %>">
+      </div>
+
+      <div>
+        <label for="labeled_offerings_count_box">
+          Labeled offerings count
+        </label>
+
+        <input type="text" id="labeled_offerings_count_box" name="query_labeled_offerings_count" value="<%= @the_offering.labeled_offerings_count %>">
+      </div>
+
+      <button>
+        Update offering
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

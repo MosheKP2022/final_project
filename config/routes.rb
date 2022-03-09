@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
 
+  # Routes for the Offering resource:
+
+  # CREATE
+  post("/insert_offering", { :controller => "offerings", :action => "create" })
+          
+  # READ
+  get("/offerings", { :controller => "offerings", :action => "index" })
+  
+  get("/offerings/:path_id", { :controller => "offerings", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_offering/:path_id", { :controller => "offerings", :action => "update" })
+  
+  # DELETE
+  get("/delete_offering/:path_id", { :controller => "offerings", :action => "destroy" })
+
+  #------------------------------
+
+  get("/", { :controller => "user_authentication", :action => "sign_up_form" })        
 
 
   # Routes for the User account:

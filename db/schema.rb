@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_180737) do
+ActiveRecord::Schema.define(version: 2022_03_09_181723) do
+
+  create_table "offerings", force: :cascade do |t|
+    t.string "title"
+    t.float "min_age"
+    t.text "description"
+    t.string "image"
+    t.string "address"
+    t.string "video"
+    t.integer "giver_id"
+    t.float "max_age"
+    t.float "price"
+    t.date "date"
+    t.time "time"
+    t.integer "comments_count"
+    t.integer "labeled_offerings_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
