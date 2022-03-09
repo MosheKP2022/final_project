@@ -10,6 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_03_09_180737) do
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "profile_picture"
+    t.string "first_name"
+    t.string "last_name"
+    t.text "about_me"
+    t.integer "phone"
+    t.string "address"
+    t.float "kids1_age"
+    t.float "kids2_age"
+    t.float "kids3_age"
+    t.float "kids4_age"
+    t.float "kids5_age"
+    t.float "kids6_age"
+    t.boolean "private"
+    t.integer "offerings_count"
+    t.integer "comments_count"
+    t.integer "messages_to_administrators_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
