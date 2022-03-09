@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
 
+  # Routes for the Messages to administrator resource:
+
+  # CREATE
+  post("/insert_messages_to_administrator", { :controller => "messages_to_administrators", :action => "create" })
+          
+  # READ
+  get("/messages_to_administrators", { :controller => "messages_to_administrators", :action => "index" })
+  
+  get("/messages_to_administrators/:path_id", { :controller => "messages_to_administrators", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_messages_to_administrator/:path_id", { :controller => "messages_to_administrators", :action => "update" })
+  
+  # DELETE
+  get("/delete_messages_to_administrator/:path_id", { :controller => "messages_to_administrators", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Comment resource:
 
   # CREATE
