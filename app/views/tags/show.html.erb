@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Tag #<%= @the_tag.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/tags">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_tag/<%= @the_tag.id %>">
+          Delete tag
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_tag.category %>
+      </dd>
+
+      <dt>
+        Sub category
+      </dt>
+      <dd>
+        <%= @the_tag.sub_category %>
+      </dd>
+
+      <dt>
+        Labeled offerings count
+      </dt>
+      <dd>
+        <%= @the_tag.labeled_offerings_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_tag.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_tag.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit tag
+    </h2>
+
+    <form action="/modify_tag/<%= @the_tag.id %>"  method="post" >
+      <div>
+        <label for="category_box">
+          Category
+        </label>
+
+        <input type="text" id="category_box" name="query_category" value="<%= @the_tag.category %>">
+      </div>
+
+      <div>
+        <label for="sub_category_box">
+          Sub category
+        </label>
+
+        <input type="text" id="sub_category_box" name="query_sub_category" value="<%= @the_tag.sub_category %>">
+      </div>
+
+      <div>
+        <label for="labeled_offerings_count_box">
+          Labeled offerings count
+        </label>
+
+        <input type="text" id="labeled_offerings_count_box" name="query_labeled_offerings_count" value="<%= @the_tag.labeled_offerings_count %>">
+      </div>
+
+      <button>
+        Update tag
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
 
+  # Routes for the Tag resource:
+
+  # CREATE
+  post("/insert_tag", { :controller => "tags", :action => "create" })
+          
+  # READ
+  get("/tags", { :controller => "tags", :action => "index" })
+  
+  get("/tags/:path_id", { :controller => "tags", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_tag/:path_id", { :controller => "tags", :action => "update" })
+  
+  # DELETE
+  get("/delete_tag/:path_id", { :controller => "tags", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Messages to administrator resource:
 
   # CREATE
