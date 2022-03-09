@@ -11,4 +11,16 @@
 #  offering_id  :integer
 #
 class Comment < ApplicationRecord
+
+  belongs_to(:commenter, { :required => true, :class_name => "User", :foreign_key => "commenter_id", :counter_cache => true })
+  belongs_to(:offering, { :required => true, :class_name => "Offering", :foreign_key => "offering_id", :counter_cache => true })
+
+  validates(:private, { :presence => true })
+  validates(:offering_id, { :numericality => true })
+  validates(:offering_id, { :presence => true })
+  validates(:commenter_id, { :numericality => true })
+  validates(:commenter_id, { :presence => true })
+  validates(:body, { :presence => true })
+
+  
 end
