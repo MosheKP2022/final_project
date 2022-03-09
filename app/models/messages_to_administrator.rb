@@ -10,4 +10,11 @@
 #  user_id    :integer
 #
 class MessagesToAdministrator < ApplicationRecord
+
+  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id", :counter_cache => true })
+
+  validates(:user_id, { :numericality => true })
+  validates(:user_id, { :presence => true })
+  validates(:title, { :presence => true })
+  validates(:body, { :presence => true })
 end
