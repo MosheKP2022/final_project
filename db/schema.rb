@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_182856) do
+ActiveRecord::Schema.define(version: 2022_03_09_183034) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "commenter_id"
     t.integer "offering_id"
     t.text "body"
     t.boolean "private"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "labeled_offerings", force: :cascade do |t|
+    t.integer "offering_id"
+    t.integer "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

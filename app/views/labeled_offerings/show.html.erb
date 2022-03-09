@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Labeled offering #<%= @the_labeled_offering.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/labeled_offerings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_labeled_offering/<%= @the_labeled_offering.id %>">
+          Delete labeled offering
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Offering
+      </dt>
+      <dd>
+        <%= @the_labeled_offering.offering_id %>
+      </dd>
+
+      <dt>
+        Tag
+      </dt>
+      <dd>
+        <%= @the_labeled_offering.tag_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_labeled_offering.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_labeled_offering.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit labeled offering
+    </h2>
+
+    <form action="/modify_labeled_offering/<%= @the_labeled_offering.id %>"  method="post" >
+      <div>
+        <label for="offering_id_box">
+          Offering
+        </label>
+
+        <input type="text" id="offering_id_box" name="query_offering_id" value="<%= @the_labeled_offering.offering_id %>">
+      </div>
+
+      <div>
+        <label for="tag_id_box">
+          Tag
+        </label>
+
+        <input type="text" id="tag_id_box" name="query_tag_id" value="<%= @the_labeled_offering.tag_id %>">
+      </div>
+
+      <button>
+        Update labeled offering
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

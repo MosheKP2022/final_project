@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
 
+  # Routes for the Labeled offering resource:
+
+  # CREATE
+  post("/insert_labeled_offering", { :controller => "labeled_offerings", :action => "create" })
+          
+  # READ
+  get("/labeled_offerings", { :controller => "labeled_offerings", :action => "index" })
+  
+  get("/labeled_offerings/:path_id", { :controller => "labeled_offerings", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_labeled_offering/:path_id", { :controller => "labeled_offerings", :action => "update" })
+  
+  # DELETE
+  get("/delete_labeled_offering/:path_id", { :controller => "labeled_offerings", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Tag resource:
 
   # CREATE

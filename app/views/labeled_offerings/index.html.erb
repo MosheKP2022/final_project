@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all labeled offerings
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new labeled offering
+    </h2>
+
+    <form action="/insert_labeled_offering" method="post">
+      <div>
+        <label for="offering_id_box">
+          Offering
+        </label>
+
+        <input type="text" id="offering_id_box" name="query_offering_id">
+      </div>
+
+      <div>
+        <label for="tag_id_box">
+          Tag
+        </label>
+
+        <input type="text" id="tag_id_box" name="query_tag_id">
+      </div>
+
+      <button>
+        Create labeled offering
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Offering
+        </th>
+
+        <th>
+          Tag
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_labeled_offerings.each do |a_labeled_offering| %>
+      <tr>
+        <td>
+          <%= a_labeled_offering.id %>
+        </td>
+
+        <td>
+          <%= a_labeled_offering.offering_id %>
+        </td>
+
+        <td>
+          <%= a_labeled_offering.tag_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_labeled_offering.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_labeled_offering.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/labeled_offerings/<%= a_labeled_offering.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
