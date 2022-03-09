@@ -28,4 +28,22 @@ class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   has_secure_password
+
+  has_many(:offerings, { :class_name => "Offering", :foreign_key => "giver_id", :dependent => :nullify })
+  has_many(:comments, { :class_name => "Comment", :foreign_key => "commenter_id" })
+  has_many(:messages_to_administrators, { :class_name => "MessagesToAdministrator", :foreign_key => "user_id" })
+
+  validates(:private, { :presence => true })
+  validates(:phone, { :numericality => true })
+  validates(:last_name, { :presence => true })
+  validates(:kids6_age, { :numericality => { :greater_than_or_equal_to => 0 } })
+  validates(:kids5_age, { :numericality => { :greater_than_or_equal_to => 0 } })
+  validates(:kids4_age, { :numericality => { :greater_than_or_equal_to => 0 } })
+  validates(:kids3_age, { :numericality => { :greater_than_or_equal_to => 0 } })
+  validates(:kids2_age, { :numericality => { :greater_than_or_equal_to => 0 } })
+  validates(:kids1_age, { :numericality => { :greater_than_or_equal_to => 0 } })
+  validates(:kids1_age, { :presence => true })
+  validates(:first_name, { :presence => true })
+  validates(:first_name, { :uniqueness => { :scope => ["email"] } })
+  validates(:last_name, { :uniqueness => { :scope => ["email"] } })
 end

@@ -20,4 +20,9 @@
 #  giver_id                :integer
 #
 class Offering < ApplicationRecord
+
+  
+
+
+
 end
