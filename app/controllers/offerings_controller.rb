@@ -22,7 +22,7 @@ class OfferingsController < ApplicationController
     the_offering.title = params.fetch("query_title")
     the_offering.min_age = params.fetch("query_min_age")
     the_offering.description = params.fetch("query_description")
-    the_offering.giver_id = params.fetch("query_giver_id")
+    the_offering.giver_id = session.fetch(:user_id)
     the_offering.image = params.fetch("query_image")
     the_offering.address = params.fetch("query_address")
     the_offering.max_age = params.fetch("query_max_age")

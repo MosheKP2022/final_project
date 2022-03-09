@@ -23,12 +23,20 @@
         <input type="text" id="title_box" name="query_title">
       </div>
 
- <div>
+      <div>
         <label for="category">
           Category
         </label>
 
-        <input type="text" id="category" name="query_category">
+        <%#<input type="text" id="category" name="query_category">%>
+     
+      <select name="query_category">
+      <%Tag.all.order(:category).each do |a_tag|%> 
+      <option value= <%=a_tag.id%>>
+      <%=a_tag.category%>
+      </option>
+      <%end%>
+      </select>
       </div>
 
       <div>
@@ -36,8 +44,17 @@
           Sub Category
         </label>
 
-        <input type="text" id="sub_category" name="query_sub_category">
+        <%#<input type="text" id="sub_category" name="query_sub_category">%>
+        <%# "toys" needs to be dynamic based on user's choice of category%>
+        <select name="query_sub_category">
+      <%Tag.where(:category=> "toys").each do |a_tag|%> 
+      <option value= <%=a_tag.id%>>
+      <%=a_tag.sub_category%>
+      </option>
+      <%end%>
+      </select>
       </div>
+      
 
       <div>
         <label for="description_box">
@@ -52,7 +69,7 @@
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="https://robohash.org/dolorehicincidunt">
+        <input type="text" id="image_box" name="query_image" value="https://robohash.org/<%= rand(99999)%>.png">
       </div>
 
 <div>
@@ -79,13 +96,6 @@
         </label>
 
         <input type="text" id="address_box" name="query_address">
-      </div>
-
-      <div>
-        <label for="giver_id_box">
-        </label>
-
-        <input type="hidden" id="giver_id_box" name="query_giver_id" value= <%=@current_user.id%> >
       </div>
 
       <div>
@@ -209,7 +219,7 @@
         </td>
 
         <td>
-          <%= an_offering.image %>
+          <img src="<%= an_offering.image %>">
         </td>
 
         <td>
