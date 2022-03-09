@@ -22,16 +22,13 @@ class OfferingsController < ApplicationController
     the_offering.title = params.fetch("query_title")
     the_offering.min_age = params.fetch("query_min_age")
     the_offering.description = params.fetch("query_description")
+    the_offering.giver_id = params.fetch("query_giver_id")
     the_offering.image = params.fetch("query_image")
     the_offering.address = params.fetch("query_address")
-    the_offering.video = params.fetch("query_video")
-    the_offering.giver_id = params.fetch("query_giver_id")
     the_offering.max_age = params.fetch("query_max_age")
     the_offering.price = params.fetch("query_price")
     the_offering.date = params.fetch("query_date")
     the_offering.time = params.fetch("query_time")
-    the_offering.comments_count = params.fetch("query_comments_count")
-    the_offering.labeled_offerings_count = params.fetch("query_labeled_offerings_count")
 
     if the_offering.valid?
       the_offering.save

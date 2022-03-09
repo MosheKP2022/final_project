@@ -23,12 +23,20 @@
         <input type="text" id="title_box" name="query_title">
       </div>
 
-      <div>
-        <label for="min_age_box">
-          Min age
+ <div>
+        <label for="category">
+          Category
         </label>
 
-        <input type="text" id="min_age_box" name="query_min_age">
+        <input type="text" id="category" name="query_category">
+      </div>
+
+      <div>
+        <label for="sub_category">
+          Sub Category
+        </label>
+
+        <input type="text" id="sub_category" name="query_sub_category">
       </div>
 
       <div>
@@ -44,8 +52,26 @@
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image">
+        <input type="text" id="image_box" name="query_image" value="https://robohash.org/dolorehicincidunt">
       </div>
+
+<div>
+        <label for="min_age_box">
+          Min age
+        </label>
+
+        <input type="text" id="min_age_box" name="query_min_age">
+
+
+     
+        <label for="max_age_box">
+          Max age
+        </label>
+
+        <input type="text" id="max_age_box" name="query_max_age">
+      </div>
+
+
 
       <div>
         <label for="address_box">
@@ -56,27 +82,10 @@
       </div>
 
       <div>
-        <label for="video_box">
-          Video
-        </label>
-
-        <input type="text" id="video_box" name="query_video">
-      </div>
-
-      <div>
         <label for="giver_id_box">
-          Giver
         </label>
 
-        <input type="text" id="giver_id_box" name="query_giver_id">
-      </div>
-
-      <div>
-        <label for="max_age_box">
-          Max age
-        </label>
-
-        <input type="text" id="max_age_box" name="query_max_age">
+        <input type="hidden" id="giver_id_box" name="query_giver_id" value= <%=@current_user.id%> >
       </div>
 
       <div>
@@ -104,20 +113,13 @@
       </div>
 
       <div>
-        <label for="comments_count_box">
-          Comments count
+        <label for="tags">
+          Tags
         </label>
 
-        <input type="text" id="comments_count_box" name="query_comments_count">
+        <input type="text" id="tags" name="query_tags">
       </div>
 
-      <div>
-        <label for="labeled_offerings_count_box">
-          Labeled offerings count
-        </label>
-
-        <input type="text" id="labeled_offerings_count_box" name="query_labeled_offerings_count">
-      </div>
 
       <button>
         Create offering
@@ -155,9 +157,6 @@
           Address
         </th>
 
-        <th>
-          Video
-        </th>
 
         <th>
           Giver
@@ -177,14 +176,6 @@
 
         <th>
           Time
-        </th>
-
-        <th>
-          Comments count
-        </th>
-
-        <th>
-          Labeled offerings count
         </th>
 
         <th>
@@ -226,11 +217,7 @@
         </td>
 
         <td>
-          <%= an_offering.video %>
-        </td>
-
-        <td>
-          <%= an_offering.giver_id %>
+          <%= an_offering.giver.first_name %> <%= an_offering.giver.last_name %>
         </td>
 
         <td>
@@ -247,14 +234,6 @@
 
         <td>
           <%= an_offering.time %>
-        </td>
-
-        <td>
-          <%= an_offering.comments_count %>
-        </td>
-
-        <td>
-          <%= an_offering.labeled_offerings_count %>
         </td>
 
         <td>
