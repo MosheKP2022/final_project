@@ -73,7 +73,15 @@ class UserAuthenticationController < ApplicationController
     end
   end
     
-  def show_profile_dashboard
+  def edit_profile
+    render({ :template => "user_authentication/edit_profile.html.erb" })
+  end
+
+  def profile_dashboard
+    @user_offerings = Offering.where({:giver_id => @current_user.id})
+
+    #@list_of_offerings = matching_offerings.order({ :created_at => :desc })
+
     render({ :template => "user_authentication/profile_dashboard.html.erb" })
   end
 

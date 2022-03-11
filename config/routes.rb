@@ -110,9 +110,13 @@ Rails.application.routes.draw do
   get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
   # CREATE RECORD
   post("/insert_user", { :controller => "user_authentication", :action => "create"  })
-      
-  # EDIT PROFILE FORM        
-  get("/user_profile", { :controller => "user_authentication", :action => "show_profile_dashboard" })       
+   
+  
+  get("/user_profile", { :controller => "user_authentication", :action => "profile_dashboard" })
+  
+  # EDIT PROFILE FORM 
+  get("/edit_profile_form", { :controller => "user_authentication", :action => "edit_profile" })
+ 
   # UPDATE RECORD
   post("/modify_user", { :controller => "user_authentication", :action => "update" })
   
