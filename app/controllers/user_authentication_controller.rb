@@ -73,8 +73,8 @@ class UserAuthenticationController < ApplicationController
     end
   end
     
-  def edit_profile_form
-    render({ :template => "user_authentication/edit_profile.html.erb" })
+  def show_profile_dashboard
+    render({ :template => "user_authentication/profile_dashboard.html.erb" })
   end
 
   def update
