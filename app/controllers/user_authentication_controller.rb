@@ -3,7 +3,7 @@ class UserAuthenticationController < ApplicationController
   # skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
 
   def home
-    render({ :template => "user_authentication/home_page.erb" })
+    render({ :template => "user_authentication/home_page.html.erb" })
   end
   
   def sign_in_form

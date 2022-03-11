@@ -1,4 +1,10 @@
 class OfferingsController < ApplicationController
+  
+  def new_offering_form
+    render({ :template => "offerings/new_offering_form.html.erb" })
+  end
+
+  
   def index
     matching_offerings = Offering.all
 

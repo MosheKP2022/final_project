@@ -80,11 +80,15 @@ Rails.application.routes.draw do
 
   # Routes for the Offering resource:
 
+  get("/new_offering_form", { :controller => "offerings", :action => "new_offering_form" })
+
   # CREATE
   post("/insert_offering", { :controller => "offerings", :action => "create" })
           
   # READ
   get("/offerings", { :controller => "offerings", :action => "index" })
+
+  
   
   get("/offerings/:path_id", { :controller => "offerings", :action => "show" })
   
