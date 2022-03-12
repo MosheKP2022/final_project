@@ -19,16 +19,17 @@ class CommentsController < ApplicationController
 
   def create
     the_comment = Comment.new
-    the_comment.commenter_id = params.fetch("query_commenter_id")
+    the_comment.commenter_id = @current_user.id
     the_comment.offering_id = params.fetch("query_offering_id")
     the_comment.body = params.fetch("query_body")
     the_comment.private = params.fetch("query_private", false)
 
     if the_comment.valid?
       the_comment.save
-      redirect_to("/comments", { :notice => "Comment created successfully." })
+      #redirect_to("/photos/#{comment.photo_id}")
+      redirect_to("/offerings/" + the_comment.offering_id.to_s, { :notice => "Comment created successfully." })
     else
-      redirect_to("/comments", { :alert => the_comment.errors.full_messages.to_sentence })
+      redirect_to("/offerings/" + the_comment.offering_id.to_s, { :alert => the_comment.errors.full_messages.to_sentence })
     end
   end
 
