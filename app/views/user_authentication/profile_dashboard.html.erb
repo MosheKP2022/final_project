@@ -105,7 +105,10 @@ My offerings
         </td>
 
         <td>
+        <% if an_offering.giver.first_name != nil %>
           <%= an_offering.giver.first_name %> <%= an_offering.giver.last_name %>
+          <%=else "User no longer exists" %>
+          <%end%>
         </td>
 
         <td>

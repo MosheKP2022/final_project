@@ -94,7 +94,9 @@
         </td>
 
         <td>
+        <% if an_offering.giver != nil %>
           <%= an_offering.giver.first_name %> <%= an_offering.giver.last_name %>
+          <%end%>
         </td>
 
         <td>
