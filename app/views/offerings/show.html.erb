@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Offering #<%= @the_offering.id %> details
+      Offering details: <%= @the_offering.title %> 
     </h1>
 
     <div>
@@ -127,6 +127,8 @@
   </div>
 </div>
 
+<div><a href="/update_offering_form"> Update offering </a></div>
+
 <hr>
 
 
@@ -146,14 +148,6 @@
       </div>
 
       <div>
-        <label for="min_age_box">
-          Min age
-        </label>
-
-        <input type="text" id="min_age_box" name="query_min_age" value="<%= @the_offering.min_age %>">
-      </div>
-
-      <div>
         <label for="description_box">
           Description
         </label>
@@ -170,30 +164,14 @@
       </div>
 
       <div>
-        <label for="address_box">
-          Address
+        <label for="min_age_box">
+          Min age
         </label>
 
-        <input type="text" id="address_box" name="query_address" value="<%= @the_offering.address %>">
-      </div>
-
-      <div>
-        <label for="video_box">
-          Video
-        </label>
-
-        <input type="text" id="video_box" name="query_video" value="<%= @the_offering.video %>">
-      </div>
-
-      <div>
-        <label for="giver_id_box">
-          Giver
-        </label>
-
-        <input type="text" id="giver_id_box" name="query_giver_id" value="<%= @the_offering.giver_id %>">
-      </div>
-
-      <div>
+        <input type="text" id="min_age_box" name="query_min_age" value="<%= @the_offering.min_age %>">
+     
+     
+      
         <label for="max_age_box">
           Max age
         </label>
@@ -201,7 +179,16 @@
         <input type="text" id="max_age_box" name="query_max_age" value="<%= @the_offering.max_age %>">
       </div>
 
+
       <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address" value="<%= @the_offering.address %>">
+      </div>
+
+<div>
         <label for="price_box">
           Price
         </label>
@@ -226,19 +213,43 @@
       </div>
 
       <div>
-        <label for="comments_count_box">
-          Comments count
+        <label for="tags">
+          Tags
         </label>
 
-        <input type="text" id="comments_count_box" name="query_comments_count" value="<%= @the_offering.comments_count %>">
+        <input type="text" id="tags" name="query_tags">
       </div>
 
       <div>
-        <label for="labeled_offerings_count_box">
-          Labeled offerings count
+        <label for="category">
+          Category
         </label>
 
-        <input type="text" id="labeled_offerings_count_box" name="query_labeled_offerings_count" value="<%= @the_offering.labeled_offerings_count %>">
+        <%#<input type="text" id="category" name="query_category">%>
+     
+      <select name="query_category">
+      <%Tag.all.order(:category).each do |a_tag|%> 
+      <option value= <%=a_tag.id%>>
+      <%=a_tag.category%>
+      </option>
+      <%end%>
+      </select>
+      </div>
+
+      <div>
+        <label for="sub_category">
+          Sub Category
+        </label>
+
+        <%#<input type="text" id="sub_category" name="query_sub_category">%>
+        <%# "toys" needs to be dynamic based on user's choice of category%>
+        <select name="query_sub_category">
+      <%Tag.where(:category=> "toys").each do |a_tag|%> 
+      <option value= <%=a_tag.id%>>
+      <%=a_tag.sub_category%>
+      </option>
+      <%end%>
+      </select>
       </div>
 
       <button>
@@ -270,11 +281,11 @@
           Comment
         </label>
 
-        <textarea id="body_box" name="query_body" rows="1"></textarea>
+        <textarea id="body_box" name="query_body" rows="1" placeholder="say something"> I'm interested! </textarea>
       
 
       
-        <input type="hidden" id="private_box" name="query_private" value="1">
+        <input type="hidden" id="private_box" name="query_private" value="0">
 
         <label for="private_box"></label>
       
@@ -292,24 +303,13 @@
   <div>
     <table border="1">
       <tr>
+
         <th>
-          ID
+          Name
         </th>
 
         <th>
-          Commenter
-        </th>
-
-        <th>
-          Offering
-        </th>
-
-        <th>
-          Body
-        </th>
-
-        <th>
-          Private
+          Comment
         </th>
 
         <th>
@@ -326,24 +326,13 @@
 
       <% @the_offering.comments.each do |a_comment| %>
       <tr>
-        <td>
-          <%= a_comment.id %>
-        </td>
 
         <td>
-          <%= a_comment.commenter_id %>
-        </td>
-
-        <td>
-          <%= a_comment.offering_id %>
+          <%= a_comment.commenter.first_name %> <%= a_comment.commenter.last_name %>
         </td>
 
         <td>
           <%= a_comment.body %>
-        </td>
-
-        <td>
-          <%= a_comment.private %>
         </td>
 
         <td>

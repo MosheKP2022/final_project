@@ -79,6 +79,7 @@ class UserAuthenticationController < ApplicationController
 
   def profile_dashboard
     @user_offerings = Offering.where({:giver_id => @current_user.id})
+    @user_comments = Comment.where({:commenter_id => @current_user.id})
 
     #@list_of_offerings = matching_offerings.order({ :created_at => :desc })
 

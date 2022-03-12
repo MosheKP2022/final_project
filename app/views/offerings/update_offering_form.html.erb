@@ -1,15 +1,16 @@
+<div>
+  <div>
+    <h2>
+      Edit offering
+    </h2>
 
-    <h1>
-      Add a new offering
-    </h1>
-
-    <form action="/insert_offering" method="post">
+    <form action="/modify_offering/<%= @the_offering.id %>"  method="post" >
       <div>
         <label for="title_box">
           Title
         </label>
 
-        <input type="text" id="title_box" name="query_title">
+        <input type="text" id="title_box" name="query_title" value="<%= @the_offering.title %>">
       </div>
 
       <div>
@@ -17,7 +18,7 @@
           Description
         </label>
 
-        <textarea id="description_box" name="query_description" rows="3"></textarea>
+        <textarea id="description_box" name="query_description"><%= @the_offering.description %></textarea>
       </div>
 
       <div>
@@ -25,25 +26,24 @@
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="https://robohash.org/<%= rand(99999)%>.png">
+        <input type="text" id="image_box" name="query_image" value="<%= @the_offering.image %>">
       </div>
 
-<div>
+      <div>
         <label for="min_age_box">
           Min age
         </label>
 
-        <input type="text" id="min_age_box" name="query_min_age">
-
-
+        <input type="text" id="min_age_box" name="query_min_age" value="<%= @the_offering.min_age %>">
      
+     
+      
         <label for="max_age_box">
           Max age
         </label>
 
-        <input type="text" id="max_age_box" name="query_max_age">
+        <input type="text" id="max_age_box" name="query_max_age" value="<%= @the_offering.max_age %>">
       </div>
-
 
 
       <div>
@@ -51,15 +51,15 @@
           Address
         </label>
 
-        <input type="text" id="address_box" name="query_address">
+        <input type="text" id="address_box" name="query_address" value="<%= @the_offering.address %>">
       </div>
 
-      <div>
+<div>
         <label for="price_box">
           Price
         </label>
 
-        <input type="text" id="price_box" name="query_price">
+        <input type="text" id="price_box" name="query_price" value="<%= @the_offering.price %>">
       </div>
 
       <div>
@@ -67,7 +67,7 @@
           Date
         </label>
 
-        <input type="date" id="date_box" name="query_date">
+        <input type="date" id="date_box" name="query_date" value="<%= @the_offering.date %>">
       </div>
 
       <div>
@@ -75,7 +75,7 @@
           Time
         </label>
 
-        <input type="time" id="time_box" name="query_time">
+        <input type="time" id="time_box" name="query_time" value="<%= @the_offering.time %>">
       </div>
 
       <div>
@@ -118,9 +118,8 @@
       </select>
       </div>
 
-
       <button>
-        Create offering
+        Update offering
       </button>
     </form>
   </div>

@@ -82,6 +82,8 @@ Rails.application.routes.draw do
 
   get("/new_offering_form", { :controller => "offerings", :action => "new_offering_form" })
 
+  # get("/update_offering_form", { :controller => "offerings", :action => "update_offering_form" })
+
   # CREATE
   post("/insert_offering", { :controller => "offerings", :action => "create" })
           

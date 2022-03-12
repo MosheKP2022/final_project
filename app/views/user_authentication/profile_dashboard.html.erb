@@ -107,7 +107,6 @@ My offerings
         <td>
         <% if an_offering.giver.first_name != nil %>
           <%= an_offering.giver.first_name %> <%= an_offering.giver.last_name %>
-          <%=else "User no longer exists" %>
           <%end%>
         </td>
 
@@ -145,3 +144,81 @@ My offerings
   </div>
 </div>
 
+<hr>
+
+<div>
+<h2>
+My comments
+</h2>
+</div>
+
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Comment
+        </th>
+
+        <th>
+          Offering title
+        </th>
+
+        <th>
+          giver (offering)
+        </th>
+
+        <th>
+        </th>
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+
+     <% @user_comments.each do |a_comment| %>
+      <tr>
+        <td>
+          <%= a_comment.id %>
+        </td>
+
+        <td>
+          <%= a_comment.body %>
+        </td>
+
+        <td>
+          <%= a_comment.offering.title %>
+        </td>
+
+         <td>
+         <% if a_comment.offering.giver != nil %>
+          <%= a_comment.offering.giver.first_name %> <%= a_comment.offering.giver.last_name %>
+          <%end%>
+        </td>
+
+        <td>
+          <a href="/offerings/<%=a_comment.offering.id%>"> Related offering </a>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_comment.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_comment.updated_at) %> ago
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
