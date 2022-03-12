@@ -21,7 +21,7 @@ class MessagesToAdministratorsController < ApplicationController
     the_messages_to_administrator = MessagesToAdministrator.new
     the_messages_to_administrator.title = params.fetch("query_title")
     the_messages_to_administrator.body = params.fetch("query_body")
-    the_messages_to_administrator.user_id = params.fetch("query_user_id")
+    the_messages_to_administrator.user_id = @current_user.id
 
     if the_messages_to_administrator.valid?
       the_messages_to_administrator.save

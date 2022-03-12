@@ -39,7 +39,13 @@
 <a href="/tags"> tags </a>
 </div>
 <div>
-<a href="/messages_to_administrators"> messages to administrators </a>
+<% if @current_user != nil %>
+<% if @current_user.email != "moshe.kultperry@chicagobooth.edu" %>
+<a href="/messages_to_administrators"> Contact us </a>
+<% else %>
+<a href="/messages_to_administrators"> Read fan letters ;) </a>
+<%end%>
+<%end%>
 </div>
 <div>
 <a href="/new_offering_form"> Add new offering </a>

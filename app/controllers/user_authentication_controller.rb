@@ -1,6 +1,6 @@
 class UserAuthenticationController < ApplicationController
   # Uncomment line 3 in this file and line 5 in ApplicationController if you want to force users to sign in before any other actions.
-  # skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
+  skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
 
   def home
     render({ :template => "user_authentication/home_page.html.erb" })
@@ -78,8 +78,8 @@ class UserAuthenticationController < ApplicationController
   end
 
   def profile_dashboard
-    @user_offerings = Offering.where({:giver_id => @current_user.id})
-    @user_comments = Comment.where({:commenter_id => @current_user.id})
+    @user_offerings = Offering.where({:giver_id => @current_user.id}).order(:created_at=> :desc)
+    @user_comments = Comment.where({:commenter_id => @current_user.id}).order(:created_at=> :desc)
 
     #@list_of_offerings = matching_offerings.order({ :created_at => :desc })
 

@@ -1,13 +1,5 @@
-<div>
-  <div>
-    <h1>
-      List of all messages to administrators
-    </h1>
-  </div>
-</div>
 
-<hr>
-
+<% if @current_user.email != "moshe.kultperry@chicagobooth.edu" %>
 <div>
   <div>
     <h2>
@@ -25,19 +17,12 @@
 
       <div>
         <label for="body_box">
-          Body
+          text
         </label>
 
         <textarea id="body_box" name="query_body" rows="3"></textarea>
       </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
 
       <button>
         Create messages to administrator
@@ -45,7 +30,18 @@
     </form>
   </div>
 </div>
+<%end%>
 
+<% if @current_user.email == "moshe.kultperry@chicagobooth.edu" %>
+<div>
+  <div>
+    <h1>
+      List of all messages to administrators
+    </h1>
+  </div>
+</div>
+
+<hr>
 <hr>
 <div>
   <div>
@@ -116,3 +112,4 @@
 </div>
 
 <hr>
+<%end%>
