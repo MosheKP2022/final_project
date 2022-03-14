@@ -127,11 +127,11 @@
   </div>
 </div>
 
-<div><a href="/update_offering_form"> Update offering </a></div>
+<%#<div><a href="/update_offering_form"> Update offering </a></div>%>
 
 <hr>
 
-
+<% if @current_user.id == @the_offering.id%>
 <div>
   <div>
     <h2>
@@ -258,7 +258,7 @@
     </form>
   </div>
 </div>
-
+<%end%>
 <hr>
 
 <div>

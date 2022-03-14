@@ -3,7 +3,7 @@
       Add a new offering
     </h1>
 
-    <form action="/insert_offering" method="post">
+    <form action="/insert_offering" method="post" class="form-horizontal" enctype="multipart/form-data">
       <div>
         <label for="title_box">
           Title
@@ -25,7 +25,8 @@
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="https://robohash.org/<%= rand(99999)%>.png">
+        <input type="file" id="image" name="image" class="form-control">
+        <%#value="https://robohash.org/<%= rand(99999).png"%>
       </div>
 
 <div>

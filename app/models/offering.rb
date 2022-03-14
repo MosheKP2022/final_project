@@ -21,6 +21,8 @@
 #
 class Offering < ApplicationRecord
 
+  mount_uploader :image, ImageUploader
+
   belongs_to(:giver, { :required => true, :class_name => "User", :foreign_key => "giver_id", :counter_cache => true })
   has_many(:comments, { :class_name => "Comment", :foreign_key => "offering_id", :dependent => :nullify })
   has_many(:labeled_offerings, { :class_name => "LabeledOffering", :foreign_key => "offering_id" })
