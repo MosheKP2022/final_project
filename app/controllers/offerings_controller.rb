@@ -40,13 +40,31 @@ class OfferingsController < ApplicationController
     the_offering.price = params.fetch("query_price")
     the_offering.date = params.fetch("query_date")
     the_offering.time = params.fetch("query_time")
+    the_offering.labeled_offerings = params.fetch("query_tags")
+
+ 
+
+
 
     if the_offering.valid?
       the_offering.save
+
+      x= Labeled_offerings.new
+      new_labeled_offerings = params.fetch("tags")
+      x.tag_id = new_labeled_offerings
+      x.offering_id = the_offering.id
+      x.save
+
+      
+
       redirect_to("/offerings", { :notice => "Offering created successfully." })
     else
       redirect_to("/offerings", { :alert => the_offering.errors.full_messages.to_sentence })
     end
+
+   
+
+
   end
 
   def update

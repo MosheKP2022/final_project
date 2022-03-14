@@ -58,9 +58,6 @@ class UserAuthenticationController < ApplicationController
     @user.kids6_age = params.fetch("query_kids6_age")
     @user.private = params.fetch("query_private", false)
     @user.kids2_age = params.fetch("query_kids2_age")
-    @user.offerings_count = params.fetch("query_offerings_count")
-    @user.comments_count = params.fetch("query_comments_count")
-    @user.messages_to_administrators_count = params.fetch("query_messages_to_administrators_count")
 
     save_status = @user.save
 

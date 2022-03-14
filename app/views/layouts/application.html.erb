@@ -20,17 +20,35 @@
   <div>
 <a href="/"> Home </a>
 </div>
+<% if @current_user != nil%>
 <div>
-<a href="/user_sign_up"> sign up </a>
+<a href="/user_sign_out"> Sign out </a>
 </div>
 <div>
-<a href="/user_sign_in"> sign in </a>
+<%else%>
+<div>
+<a href="/user_sign_up"> Sign up </a>
 </div>
 <div>
-<a href="/user_sign_out"> sign out </a>
+<a href="/user_sign_in"> Sign in </a>
+</div>
+<%end%>
+
+
+<a href="/offerings"> Offerings list </a>
 </div>
 <div>
-<a href="/offerings"> offerings </a>
+<a href="/new_offering_form"> Add new offering </a>
+</div>
+
+<% if @current_user != nil %>
+<% if @current_user.email != "moshe.kultperry@chicagobooth.edu" %>
+<div>
+<a href="/messages_to_administrators"> Contact us </a>
+</div>
+<% else %>
+<div>
+<a href="/messages_to_administrators"> Read fan letters ;) </a>
 </div>
 <div>
 <a href="/comments"> comments </a>
@@ -38,18 +56,10 @@
 <div>
 <a href="/tags"> tags </a>
 </div>
-<div>
-<% if @current_user != nil %>
-<% if @current_user.email != "moshe.kultperry@chicagobooth.edu" %>
-<a href="/messages_to_administrators"> Contact us </a>
-<% else %>
-<a href="/messages_to_administrators"> Read fan letters ;) </a>
 <%end%>
 <%end%>
-</div>
-<div>
-<a href="/new_offering_form"> Add new offering </a>
-</div>
+
+
 
 
   </nav>
