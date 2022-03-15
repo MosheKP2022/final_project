@@ -11,11 +11,13 @@
         </a>
       </div>
 
+<%if @current_user.id == @the_offering.giver.id %>
       <div>
         <a href="/delete_offering/<%= @the_offering.id %>">
           Delete offering
         </a>
       </div>
+      <%end%>
     </div>
 
     <dl>
@@ -313,6 +315,10 @@
         </th>
 
         <th>
+          Email
+        </th>
+
+        <th>
           Created at
         </th>
 
@@ -333,6 +339,10 @@
 
         <td>
           <%= a_comment.body %>
+        </td>
+
+         <td>
+          <%= a_comment.commenter.email %>
         </td>
 
         <td>
