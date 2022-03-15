@@ -64,61 +64,20 @@
       </div>
 
       <div>
-        <label for="date_box">
-          Date
-        </label>
-
-        <input type="date" id="date_box" name="query_date">
-      </div>
-
-      <div>
-        <label for="time_box">
-          Time
-        </label>
-
-        <input type="time" id="time_box" name="query_time">
-      </div>
-
-      <div>
-        <label for="tags">
-          Tags
-        </label>
-
-        <input type="text" id="tags" name="query_tags">
-      </div>
-
-      <div>
         <label for="category">
           Category
         </label>
 
-        <%#<input type="text" id="category" name="query_category">%>
-     
-      <select name="query_category">
-      <%Tag.all.order(:category).each do |a_tag|%> 
-      <option value= <%=a_tag.id%>>
-      <%=a_tag.category%>
-      </option>
-      <%end%>
-      </select>
+        <input type="text" id="category" name="query_tag1_category">
       </div>
 
-      <div>
+        <div>
         <label for="sub_category">
-          Sub Category
+          Sub_category
         </label>
 
-        <%#<input type="text" id="sub_category" name="query_sub_category">%>
-        <%# "toys" needs to be dynamic based on user's choice of category%>
-        <select name="query_sub_category">
-      <%Tag.where(:category=> "toys").each do |a_tag|%> 
-      <option value= <%=a_tag.id%>>
-      <%=a_tag.sub_category%>
-      </option>
-      <%end%>
-      </select>
+        <input type="text" id="sub_category" name="query_tag1_sub_category">
       </div>
-
 
       <button>
         Create offering

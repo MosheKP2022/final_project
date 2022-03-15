@@ -38,29 +38,34 @@ class OfferingsController < ApplicationController
     the_offering.address = params.fetch("query_address")
     the_offering.max_age = params.fetch("query_max_age")
     the_offering.price = params.fetch("query_price")
-    the_offering.date = params.fetch("query_date")
-    the_offering.time = params.fetch("query_time")
-    the_offering.labeled_offerings = params.fetch("query_tags")
-
- 
-
-
+    #the_offering.date = params.fetch("query_date")
+    #the_offering.time = params.fetch("query_time")
 
     if the_offering.valid?
       the_offering.save
 
-      x= Labeled_offerings.new
-      new_labeled_offerings = params.fetch("tags")
-      x.tag_id = new_labeled_offerings
-      x.offering_id = the_offering.id
-      x.save
+      new_tag1 = Tag.new
+      new_tag1.category = params.fetch("query_tag1_category")
+      new_tag1.sub_category = params.fetch("query_tag1_sub_category")
+
+      if new_tag1.valid?
+      new_tag1.save
 
       
+      new_labeled_offering = LabeledOffering.new
+      new_labeled_offering.tag_id = new_tag1.id
+      new_labeled_offering.offering_id = the_offering.id
 
-      redirect_to("/offerings", { :notice => "Offering created successfully." })
+        if new_labeled_offering.valid?
+          new_labeled_offering.save
+
+      
+      redirect_to("/", { :notice => "Offering created successfully." })
     else
       redirect_to("/offerings", { :alert => the_offering.errors.full_messages.to_sentence })
-    end
+        end
+      end
+  end
 
    
 
