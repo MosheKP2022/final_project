@@ -10,16 +10,17 @@
   <div>
     <table border="1">
       <tr>
+
         <th>
-          ID
+          Category
+        </th>
+
+        <th>
+          Sub category
         </th>
 
         <th>
           Title
-        </th>
-
-        <th>
-          Min age
         </th>
 
         <th>
@@ -30,29 +31,28 @@
           Image
         </th>
 
-        <th>
-          Address
+      <th>
+          Min age
         </th>
 
-
-        <th>
-          Giver
-        </th>
 
         <th>
           Max age
         </th>
 
         <th>
+          Address for pick up
+        </th>
+   
+        <th>
           Price
         </th>
-
-        <th>
-          Date
+      <th>
+          Giver name
         </th>
 
         <th>
-          Time
+          Giver amail
         </th>
 
         <th>
@@ -69,17 +69,18 @@
 
       <% @list_of_offerings.each do |an_offering| %>
       <tr>
+
         <td>
-          <%= an_offering.id %>
+          <%= an_offering.tags.first.category %>
         </td>
 
+        <td>
+          <%= an_offering.tags.first.sub_category %>
+        </td>
         <td>
           <%= an_offering.title %>
         </td>
 
-        <td>
-          <%= an_offering.min_age %>
-        </td>
 
         <td>
           <%= an_offering.description %>
@@ -90,30 +91,31 @@
         </td>
 
         <td>
-          <%= an_offering.address %>
+          <%= an_offering.min_age %>
         </td>
 
-        <td>
-        <% if an_offering.giver != nil %>
-          <%= an_offering.giver.first_name %> <%= an_offering.giver.last_name %>
-          <%end%>
-        </td>
-
-        <td>
+          <td>
           <%= an_offering.max_age %>
         </td>
 
         <td>
+          <%= an_offering.address %>
+        </td>
+
+         <td>
           <%= an_offering.price %>
         </td>
 
+        <% if an_offering.giver != nil %>
         <td>
-          <%= an_offering.date %>
+          <%= an_offering.giver.first_name %> <%= an_offering.giver.last_name %>
         </td>
 
         <td>
-          <%= an_offering.time %>
+          <%= an_offering.giver.email%>
         </td>
+
+         <%end%>
 
         <td>
           <%= time_ago_in_words(an_offering.created_at) %> ago

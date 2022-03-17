@@ -325,14 +325,15 @@
         <th>
           Updated at
         </th>
-
+        
         <th>
         </th>
+      
       </tr>
 
-      <% @the_offering.comments.each do |a_comment| %>
+      
       <tr>
-
+          <% @the_offering.comments.each do |a_comment| %> 
         <td>
           <%= a_comment.commenter.first_name %> <%= a_comment.commenter.last_name %>
         </td>
@@ -351,12 +352,14 @@
         <td>
           <%= time_ago_in_words(a_comment.updated_at) %> ago
         </td>
-
         <td>
+      <%if a_comment.commenter.id == @current_user.id %>
           <a href="/comments/<%= a_comment.id %>">
-            Show details
+            Update comment
           </a>
+          
         </td>
+        <%end%>
       </tr>
       <% end %>
     </table>

@@ -14,6 +14,6 @@ class Tag < ApplicationRecord
   has_many(:labeled_offerings, { :class_name => "LabeledOffering", :foreign_key => "tag_id" })
   has_many(:offerings, { :through => :labeled_offerings, :source => :offering })
 
-  validates(:sub_category, { :uniqueness => { :scope => ["category"] } })
+  validates(:sub_category, { :presence => true })
   validates(:category, { :presence => true })
 end
