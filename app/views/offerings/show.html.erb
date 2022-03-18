@@ -21,18 +21,14 @@
     </div>
 
     <dl>
+    <dt>
+        Tag
+      </dt>
       <dt>
         Title
       </dt>
       <dd>
         <%= @the_offering.title %>
-      </dd>
-
-      <dt>
-        Min age
-      </dt>
-      <dd>
-        <%= @the_offering.min_age %>
       </dd>
 
       <dt>
@@ -46,35 +42,28 @@
         Image
       </dt>
       <dd>
-        <%= @the_offering.image %>
+      <img src="<%= @the_offering.image %>" style="width: 200px" >
       </dd>
 
       <dt>
-        Address
+        Min age
       </dt>
       <dd>
-        <%= @the_offering.address %>
+        <%= @the_offering.min_age %>
       </dd>
 
-      <dt>
-        Video
-      </dt>
-      <dd>
-        <%= @the_offering.video %>
-      </dd>
-
-      <dt>
-        Giver
-      </dt>
-      <dd>
-        <%= @the_offering.giver_id %>
-      </dd>
-
-      <dt>
+       <dt>
         Max age
       </dt>
       <dd>
         <%= @the_offering.max_age %>
+      </dd>
+
+      <dt>
+        Address for pick up
+      </dt>
+      <dd>
+        <%= @the_offering.address %>
       </dd>
 
       <dt>
@@ -85,31 +74,17 @@
       </dd>
 
       <dt>
-        Date
+        Giver name
       </dt>
       <dd>
-        <%= @the_offering.date %>
+        <%= @the_offering.giver.first_name %>  <%= @the_offering.giver.last_name %>
       </dd>
 
       <dt>
-        Time
+        Giver email
       </dt>
       <dd>
-        <%= @the_offering.time %>
-      </dd>
-
-      <dt>
-        Comments count
-      </dt>
-      <dd>
-        <%= @the_offering.comments_count %>
-      </dd>
-
-      <dt>
-        Labeled offerings count
-      </dt>
-      <dd>
-        <%= @the_offering.labeled_offerings_count %>
+        <%= @the_offering.giver.email %>
       </dd>
 
       <dt>
@@ -141,6 +116,15 @@
     </h2>
 
     <form action="/modify_offering/<%= @the_offering.id %>"  method="post" >
+      
+      <div>
+        <label for="tags">
+          Tags
+        </label>
+
+        <input type="text" id="tags" name="query_tags">
+      </div>
+      
       <div>
         <label for="title_box">
           Title
@@ -198,29 +182,11 @@
         <input type="text" id="price_box" name="query_price" value="<%= @the_offering.price %>">
       </div>
 
-      <div>
-        <label for="date_box">
-          Date
-        </label>
-
-        <input type="date" id="date_box" name="query_date" value="<%= @the_offering.date %>">
-      </div>
-
-      <div>
-        <label for="time_box">
-          Time
-        </label>
+     
 
         <input type="time" id="time_box" name="query_time" value="<%= @the_offering.time %>">
       </div>
 
-      <div>
-        <label for="tags">
-          Tags
-        </label>
-
-        <input type="text" id="tags" name="query_tags">
-      </div>
 
       <div>
         <label for="category">
