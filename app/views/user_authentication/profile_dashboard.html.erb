@@ -20,16 +20,9 @@ My offerings
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Title
-        </th>
-
-        <th>
-          Min age
         </th>
 
         <th>
@@ -44,25 +37,8 @@ My offerings
           Address
         </th>
 
-
-        <th>
-          Giver
-        </th>
-
-        <th>
-          Max age
-        </th>
-
         <th>
           Price
-        </th>
-
-        <th>
-          Date
-        </th>
-
-        <th>
-          Time
         </th>
 
         <th>
@@ -74,22 +50,19 @@ My offerings
         </th>
 
         <th>
+          # of comments
+        </th>
+
+        <th>
         </th>
       </tr>
 
 
      <% @user_offerings.each do |an_offering| %>
       <tr>
-        <td>
-          <%= an_offering.id %>
-        </td>
 
         <td>
           <%= an_offering.title %>
-        </td>
-
-        <td>
-          <%= an_offering.min_age %>
         </td>
 
         <td>
@@ -97,7 +70,7 @@ My offerings
         </td>
 
         <td>
-          <img src="<%= an_offering.image %>">
+          <img src="<%= an_offering.image %>", style="width: 200px">
         </td>
 
         <td>
@@ -105,25 +78,7 @@ My offerings
         </td>
 
         <td>
-        <% if an_offering.giver.first_name != nil %>
-          <%= an_offering.giver.first_name %> <%= an_offering.giver.last_name %>
-          <%end%>
-        </td>
-
-        <td>
-          <%= an_offering.max_age %>
-        </td>
-
-        <td>
           <%= an_offering.price %>
-        </td>
-
-        <td>
-          <%= an_offering.date %>
-        </td>
-
-        <td>
-          <%= an_offering.time %>
         </td>
 
         <td>
@@ -134,10 +89,17 @@ My offerings
         </td>
 
         <td>
+          <%= an_offering.comments_count %>
+        </td>
+
+        <td>
           <a href="/offerings/<%= an_offering.id %>">
             Show details
           </a>
         </td>
+
+      
+
       </tr>
       <% end %>
     </table>
