@@ -85,17 +85,28 @@ class OfferingsController < ApplicationController
     the_offering.giver_id = session.fetch(:user_id)
     the_offering.max_age = params.fetch("query_max_age")
     the_offering.price = params.fetch("query_price")
-    the_offering.date = params.fetch("query_date")
-    the_offering.time = params.fetch("query_time")
+    # the_offering.date = params.fetch("query_date")
+    # the_offering.time = params.fetch("query_time")
     #the_offering.comments_count = params.fetch("query_comments_count")
     #the_offering.labeled_offerings_count = params.fetch("query_labeled_offerings_count")
 
     if the_offering.valid?
       the_offering.save
+
+      @the_labeled_offering = LabeledOffering.where({ :offering_id => the_id }).at(0)
+      @the_labeled_offering.tag_id = params.fetch("query_tag1")
+      # new_labeled_offering.tag_id = new_tag.id
+      @the_labeled_offering.offering_id = the_offering.id
+
+        if @the_labeled_offering.valid?
+          @the_labeled_offering.save
+
+
       redirect_to("/offerings/#{the_offering.id}", { :notice => "Offering updated successfully."} )
     else
       redirect_to("/offerings/#{the_offering.id}", { :alert => the_offering.errors.full_messages.to_sentence })
     end
+  end
   end
 
   def destroy

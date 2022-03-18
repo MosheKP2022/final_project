@@ -24,6 +24,9 @@
     <dt>
         Tag
       </dt>
+      <dd>
+        <%= @the_offering.tags.first.category %>
+      </dd>
       <dt>
         Title
       </dt>
@@ -108,22 +111,15 @@
 
 <hr>
 
-<% if @current_user.id == @the_offering.id%>
+<% if @current_user.id == @the_offering.giver.id%>
 <div>
   <div>
     <h2>
       Edit offering
     </h2>
 
-    <form action="/modify_offering/<%= @the_offering.id %>"  method="post" >
+    <form action="/modify_offering/<%= @the_offering.id %>"  method="post" class="form-horizontal" enctype="multipart/form-data" >
       
-      <div>
-        <label for="tags">
-          Tags
-        </label>
-
-        <input type="text" id="tags" name="query_tags">
-      </div>
       
       <div>
         <label for="title_box">
@@ -146,7 +142,8 @@
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_offering.image %>">
+        <%#<input type="text" id="image_box" name="query_image" value="<%= @the_offering.image %>
+        <input type="file" id="image" name="image" class="form-control">
       </div>
 
       <div>
@@ -174,7 +171,7 @@
         <input type="text" id="address_box" name="query_address" value="<%= @the_offering.address %>">
       </div>
 
-<div>
+      <div>
         <label for="price_box">
           Price
         </label>
@@ -182,21 +179,9 @@
         <input type="text" id="price_box" name="query_price" value="<%= @the_offering.price %>">
       </div>
 
-     
-
-        <input type="time" id="time_box" name="query_time" value="<%= @the_offering.time %>">
       </div>
-
-
-      <div>
-        <label for="category">
-          Category
-        </label>
-
-        <%#<input type="text" id="category" name="query_category">%>
-     
-      <select name="query_category">
-      <%Tag.all.order(:category).each do |a_tag|%> 
+      <select name="query_tag1">
+      <% Tag.all.each do |a_tag|%> 
       <option value= <%=a_tag.id%>>
       <%=a_tag.category%>
       </option>
@@ -204,21 +189,6 @@
       </select>
       </div>
 
-      <div>
-        <label for="sub_category">
-          Sub Category
-        </label>
-
-        <%#<input type="text" id="sub_category" name="query_sub_category">%>
-        <%# "toys" needs to be dynamic based on user's choice of category%>
-        <select name="query_sub_category">
-      <%Tag.where(:category=> "toys").each do |a_tag|%> 
-      <option value= <%=a_tag.id%>>
-      <%=a_tag.sub_category%>
-      </option>
-      <%end%>
-      </select>
-      </div>
 
       <button>
         Update offering
