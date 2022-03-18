@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_183034) do
+ActiveRecord::Schema.define(version: 2022_03_18_185825) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "commenter_id"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2022_03_09_183034) do
 
   create_table "tags", force: :cascade do |t|
     t.string "category"
-    t.string "sub_category"
     t.integer "labeled_offerings_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

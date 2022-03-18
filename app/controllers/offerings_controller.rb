@@ -43,8 +43,7 @@ class OfferingsController < ApplicationController
 
     new_tag1 = Tag.new
     new_tag1.category = params.fetch("query_tag1_category")
-    new_tag1.sub_category = params.fetch("query_tag1_sub_category")
-
+    
     if the_offering.valid?
       if new_tag1.valid?
         the_offering.save
