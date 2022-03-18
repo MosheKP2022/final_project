@@ -76,6 +76,7 @@
         <%= @the_offering.price %>
       </dd>
 
+      <% if @the_offering.giver != nil %>
       <dt>
         Giver name
       </dt>
@@ -87,8 +88,9 @@
         Giver email
       </dt>
       <dd>
-        <%= @the_offering.giver.email %>
+        <a href="mailto:<%= @the_offering.giver.email %>"> <%= @the_offering.giver.email %> </a>  
       </dd>
+      <%end%>
 
       <dt>
         Created at

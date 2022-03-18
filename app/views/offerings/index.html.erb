@@ -45,13 +45,6 @@
         <th>
           Price
         </th>
-      <th>
-          Giver name
-        </th>
-
-        <th>
-          Giver amail
-        </th>
 
         <th>
           Created at
@@ -103,17 +96,6 @@
          <td>
           <%= an_offering.price %>
         </td>
-
-        <% if an_offering.giver != nil %>
-        <td>
-          <%= an_offering.giver.first_name %> <%= an_offering.giver.last_name %>
-        </td>
-
-        <td>
-          <%= an_offering.giver.email%>
-        </td>
-
-         <%end%>
 
         <td>
           <%= time_ago_in_words(an_offering.created_at) %> ago
