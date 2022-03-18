@@ -20,7 +20,7 @@ class TagsController < ApplicationController
   def create
     the_tag = Tag.new
     the_tag.category = params.fetch("query_category")
-    the_tag.labeled_offerings_count = params.fetch("query_labeled_offerings_count")
+    #the_tag.labeled_offerings_count = params.fetch("query_labeled_offerings_count")
 
     if the_tag.valid?
       the_tag.save
@@ -35,7 +35,7 @@ class TagsController < ApplicationController
     the_tag = Tag.where({ :id => the_id }).at(0)
 
     the_tag.category = params.fetch("query_category")
-    the_tag.labeled_offerings_count = params.fetch("query_labeled_offerings_count")
+    #the_tag.labeled_offerings_count = params.fetch("query_labeled_offerings_count")
 
     if the_tag.valid?
       the_tag.save

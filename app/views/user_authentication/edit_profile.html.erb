@@ -9,10 +9,7 @@
         <label for="email_box">Email</label>
         <input id="email_box" name="query_email" value="<%= @current_user.email %>">
       </div>
-      <div>
-        <label for="profile_picture_box">Profile picture</label>
-        <input id="profile_picture_box" name="query_profile_picture" value="<%= @current_user.profile_picture %>">
-      </div>
+    
       <div>
         <label for="first_name_box">First name</label>
         <input id="first_name_box" name="query_first_name" value="<%= @current_user.first_name %>">
@@ -37,6 +34,10 @@
         <label for="kids1_age_box">Kids1 age</label>
         <input id="kids1_age_box" name="query_kids1_age" value="<%= @current_user.kids1_age %>">
       </div>
+        <div>
+        <label for="kids2_age_box">Kids2 age</label>
+        <input id="kids2_age_box" name="query_kids2_age" value="<%= @current_user.kids2_age %>">
+      </div>
       <div>
         <label for="kids3_age_box">Kids3 age</label>
         <input id="kids3_age_box" name="query_kids3_age" value="<%= @current_user.kids3_age %>">
@@ -53,26 +54,10 @@
         <label for="kids6_age_box">Kids6 age</label>
         <input id="kids6_age_box" name="query_kids6_age" value="<%= @current_user.kids6_age %>">
       </div>
-      <div>
-        <label for="private_box">Private</label>
-        <input id="private_box" name="query_private" type="checkbox" value="1" <%= "checked" if @current_user.private %>>
-      </div>
-      <div>
-        <label for="kids2_age_box">Kids2 age</label>
-        <input id="kids2_age_box" name="query_kids2_age" value="<%= @current_user.kids2_age %>">
-      </div>
-      <div>
-        <label for="offerings_count_box">Offerings count</label>
-        <input id="offerings_count_box" name="query_offerings_count" value="<%= @current_user.offerings_count %>">
-      </div>
-      <div>
-        <label for="comments_count_box">Comments count</label>
-        <input id="comments_count_box" name="query_comments_count" value="<%= @current_user.comments_count %>">
-      </div>
-      <div>
-        <label for="messages_to_administrators_count_box">Messages to administrators count</label>
-        <input id="messages_to_administrators_count_box" name="query_messages_to_administrators_count" value="<%= @current_user.messages_to_administrators_count %>">
-      </div>
+   
+    
+      
+      
 
       <div>
         <label for="password_box">Password</label>

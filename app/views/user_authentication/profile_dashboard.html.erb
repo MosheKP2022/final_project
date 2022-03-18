@@ -118,9 +118,7 @@ My comments
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
+    
 
         <th>
           Comment
@@ -135,8 +133,6 @@ My comments
         </th>
 
         <th>
-        </th>
-        <th>
           Created at
         </th>
 
@@ -145,15 +141,14 @@ My comments
         </th>
 
         <th>
+          Related offering
         </th>
+
       </tr>
 
 
      <% @user_comments.each do |a_comment| %>
       <tr>
-        <td>
-          <%= a_comment.id %>
-        </td>
 
         <td>
           <%= a_comment.body %>
@@ -179,7 +174,7 @@ My comments
         </td>
 
         <td>
-          <a href="/offerings/<%=a_comment.offering.id%>"> Related offering </a>
+          <a href="/offerings/<%=a_comment.offering.id%>"> Link to offering </a>
         </td>
         
       </tr>
