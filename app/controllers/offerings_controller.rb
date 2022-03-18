@@ -29,6 +29,8 @@ class OfferingsController < ApplicationController
   end
 
   def create
+
+
     the_offering = Offering.new
     the_offering.title = params.fetch("query_title")
     the_offering.min_age = params.fetch("query_min_age")
@@ -38,19 +40,21 @@ class OfferingsController < ApplicationController
     the_offering.address = params.fetch("query_address")
     the_offering.max_age = params.fetch("query_max_age")
     the_offering.price = params.fetch("query_price")
+
     #the_offering.date = params.fetch("query_date")
     #the_offering.time = params.fetch("query_time")
 
-    new_tag1 = Tag.new
-    new_tag1.category = params.fetch("query_tag1_category")
-    
+    # new_tag = Tag.new
+    # new_tag.category = params.fetch("query_tag1")
+
     if the_offering.valid?
-      if new_tag1.valid?
+      # if new_tag.valid?
         the_offering.save
-        new_tag1.save
+        # new_tag.save
 
       new_labeled_offering = LabeledOffering.new
-      new_labeled_offering.tag_id = new_tag1.id
+      new_labeled_offering.tag_id = params.fetch("query_tag1")
+      # new_labeled_offering.tag_id = new_tag.id
       new_labeled_offering.offering_id = the_offering.id
 
         if new_labeled_offering.valid?
@@ -59,7 +63,7 @@ class OfferingsController < ApplicationController
       redirect_to("/", { :notice => "Offering created successfully." })
     else
       redirect_to("/offerings", { :alert => the_offering.errors.full_messages.to_sentence })
-        end
+        # end
       end
   end
 

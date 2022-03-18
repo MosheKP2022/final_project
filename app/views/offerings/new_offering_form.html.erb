@@ -61,15 +61,17 @@
         </label>
 
         <input type="text" id="price_box" name="query_price">
+      
       </div>
-
-      <div>
-        <label for="category">
-          Category
-        </label>
-
-        <input type="text" id="category" name="query_tag1_category">
+      <select name="query_tag1">
+      <% Tag.all.each do |a_tag|%> 
+      <option value= <%=a_tag.id%>>
+      <%=a_tag.category%>
+      </option>
+      <%end%>
+      </select>
       </div>
+      
 
       <button>
         Create offering
